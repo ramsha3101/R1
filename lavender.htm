@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Greeting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lavender;
+      text-align: center;
+      color: white;
+    }
+    #greeting {
+      font-size: 36px;
+      color: maroon;
+      margin-top: 50px;
+    }
+    #message {
+      font-size: 18px;
+      color: #333333;
+      margin: 20px 0;
+    }
+    #heart-button {
+      background-color: maroon;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      animation: pulse 1s infinite alternate;
+    }
+    #heart-button:hover {
+      background-color: #800000;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(128, 0, 0, 0.8);
+      z-index: 9999;
+    }
+    #couple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 300px;
+      background-color: darkmaroon;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    #man {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 100px;
+      background-color: transparent;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    #woman {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 100px;
+      background-color: transparent;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      animation: kiss 3s forwards;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+    @keyframes kiss {
+      0% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      50% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      100% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    }
+  </style>
+</head>
+<body>
+  <div id="greeting">Happy Birthday, Sugar!</div>
+  <div id="message">
+    Wishing you a day filled with love, joy, and happiness!
+  </div>
+  <button id="heart-button" onclick="showOverlay()">Click for a special surprise</button>
+
+  <script>
+    function showOverlay() {
+      window.location.href = "darkmaroonpage.html"; // Redirect to dark maroon page
+    }
+  </script>
+</body>
+</html>

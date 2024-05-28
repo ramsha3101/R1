@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kissing Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: darkmaroon;
+      color: white;
+      text-align: center;
+    }
+    #animation-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #animation {
+      width: 400px;
+      height: 300px;
+      background-color: gold;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      animation: formOutline 5s forwards;
+    }
+    #man {
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 200px;
+      background-color: transparent;
+      border-radius: 50%;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    #woman {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 200px;
+      background-color: transparent;
+      border-radius: 50%;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      animation: kiss 3s forwards 5s;
+    }
+    #hug {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: transparent;
+      border-radius: 50%;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      animation: hug 3s forwards 10s;
+    }
+    @keyframes formOutline {
+      0% { clip-path: circle(0%); }
+      100% { clip-path: circle(100%); }
+    }
+    @keyframes kiss {
+      0% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      100% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    }
+    @keyframes hug {
+      0% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+      100% { transform: translate(-50%, -50%); clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    }
+    #repeat-button {
+      display: none;
+      margin-top: 20px;
+      background-color: maroon;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="animation-container">
+    <div id="animation">
+      <div id="man"></div>
+      <div id="woman"></div>
+      <div id="hug"></div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById("hug").style.display = "block";
+      document.getElementById("repeat-button").style.display = "block";
+    }, 15000); // 15 seconds after animation start
+
+    function repeatAnimation() {
+      window.location.reload();
+    }
+  </script>
+
+  <button id="repeat-button" onclick="repeatAnimation()">Want me to kiss you again?</button>
+</body>
+</html>
